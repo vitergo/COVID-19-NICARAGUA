@@ -1,0 +1,13 @@
+# Pandemia vs. La Ciencia de los Datos
+
+Usamos la ciencia de los datos para tratar de entender el comportamiento del COVID-19 en Nicaragua, cuyos comportamientos en el mundo son en apariencia contra-intuitivos y difíciles de pronosticar.
+
+En este ejercicio académico, trataremos de responder las siguientes preguntas:
+
+1. ¿Qué impacto, en términos de vidas humanas, tendrá la enfermedad en el país.
+2. ¿Cuándo se espera que la situación sea crítica?
+3. ¿Cuánto durará la crisis?
+4. ¿Qué tan preparado parece estar el sistema de salud actual para atender la emergencia?
+5. ¿Qué impacto podrían tener soluciones propuestas por otros países?
+
+Para tener una respuesta a esta y otras preguntas, lee mi [análisis de riesgo](COVID-19_Nicaragua.html).

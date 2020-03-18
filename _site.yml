@@ -1,0 +1,20 @@
+name: "COVID-19 en Nicaragua"
+output_dir: "."
+navbar:
+  title: "COVID-19 en Nicaragua"
+  left:
+    - text: "Análisis de Riesgo"
+      href: COVID-19_Nicaragua.html
+    - text: "Sobre el Autor"
+      href: Semblanza.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: contacto.html
+    - icon: fa-github fa-lg
+      href: https://github.com/vitergo
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/v%C3%ADctor-tercero-g%C3%B3mez-77770329/
+output:
+  html_document:
+    theme: paper
+    css: 'styles.css'

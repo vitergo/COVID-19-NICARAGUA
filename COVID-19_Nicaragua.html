@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>COVID-19_Nicaragua.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COVID-19 en Nicaragua</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="COVID-19_Nicaragua.html">Análisis de Riesgo</a>
+</li>
+<li>
+  <a href="Semblanza.html">Sobre el Autor</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="contacto.html">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/vitergo">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/v%C3%ADctor-tercero-g%C3%B3mez-77770329/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="qué-nos-dicen-las-matemáticas-y-la-ciencia-de-datos-sobre-el-covid-19-y-la-salud-de-los-nicaragüenses" class="section level1">
+<h1>¿Qué Nos Dicen las Matemáticas y la Ciencia de Datos Sobre el COVID-19 y la Salud de los Nicaragüenses?</h1>
+<p>El COVID-19 es la infermedad infecciosa causada por el coronavirus de Wuhan. Existe mucha incertidumbre sobre el comportamiento que tendrá esta enfermedad en Nicaragua. Usaremos las estadísticas reportadas por otros países, datos poblacionales generales y modelos matemáticos del crecimiento biológico para sacar nuestras propias conclusiones. Que el ejercicio sirva para generar conciencia, discusión y mutuo aprendizaje.</p>
+<div id="muertes-a-mediano-y-largo-plazo" class="section level2">
+<h2>Muertes a mediano y largo plazo</h2>
+<p>Usando la <a href="https://datosmacro.expansion.com/paises/nicaragua">pirámide poblacional de Nicaragua</a>, y la <a href="https://www.worldometers.info/coronavirus/coronavirus-age-sex-demographics/">tasa de muertes por el COVID-19</a>, podemos calcular cuántas personas morirán en Nicaragua. Dado que no hay impuesta una política de distanciamiento social, podemos asumir que la infección será generalizada. De esta forma, la relación con las muertes esperadas, asumiendo que todos se contagian, es fácil de estimar:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="11%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Edad</th>
+<th>Tasa de muertes</th>
+<th>Hombres (2018)</th>
+<th>Mujeres (2018)</th>
+<th>Total (2018)</th>
+<th>Muertes esperadas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>80+ años</td>
+<td>14.80%</td>
+<td>27,895</td>
+<td>43,601</td>
+<td>71,496</td>
+<td><strong>10,581.41</strong></td>
+</tr>
+<tr class="even">
+<td>70-79 años</td>
+<td>8.00%</td>
+<td>61,948</td>
+<td>79,837</td>
+<td>141,785</td>
+<td><strong>11,342.80</strong></td>
+</tr>
+<tr class="odd">
+<td>60-69 años</td>
+<td>3.60%</td>
+<td>139,328</td>
+<td>173,657</td>
+<td>312,985</td>
+<td><strong>11,267.46</strong></td>
+</tr>
+<tr class="even">
+<td>50-59 años</td>
+<td>1.30%</td>
+<td>219,068</td>
+<td>264,092</td>
+<td>483,160</td>
+<td><strong>6,281.08</strong></td>
+</tr>
+<tr class="odd">
+<td>40-49 años</td>
+<td>0.40%</td>
+<td>416,261</td>
+<td>456,600</td>
+<td>872,861</td>
+<td><strong>3,491.44</strong></td>
+</tr>
+<tr class="even">
+<td>30-39 años</td>
+<td>0.20%</td>
+<td>500,276</td>
+<td>521,400</td>
+<td>1,021,676</td>
+<td><strong>2,043.35</strong></td>
+</tr>
+<tr class="odd">
+<td>20-29 años</td>
+<td>0.20%</td>
+<td>596,147</td>
+<td>578,606</td>
+<td>1,174,753</td>
+<td><strong>2,349.51</strong></td>
+</tr>
+<tr class="even">
+<td>10-19 años</td>
+<td>0.20%</td>
+<td>635,653</td>
+<td>595,813</td>
+<td>1,231,466</td>
+<td><strong>2,462.93</strong></td>
+</tr>
+<tr class="odd">
+<td>0-9 años</td>
+<td>0.00%</td>
+<td>677,357</td>
+<td>645,438</td>
+<td>1,322,795</td>
+<td><strong>0.00</strong></td>
+</tr>
+<tr class="even">
+<td>TOTAL</td>
+<td>TOTAL</td>
+<td>3,273,933</td>
+<td>3,359,044</td>
+<td>6,632,977</td>
+<td><strong>49,819.98</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Así, de un total de 6,632,977, se espera que a causa del COVID-19 mueran a largo plazo <strong>49,819.98</strong>, una tasa de mortalidad del <strong>0.75%</strong>.</p>
+<p>A mediano plazo podemos considerar únicamente a los centros urbanos, la población más expuerta al virus. Según el <a href="https://www.elnuevodiario.com.ni/economia/463377-mas-mitad-nicas-residen-areas-urbanas/">nuevo diario</a> al 2018 había un 57.6% de la población viviendo en concentraciones urbanas. Esto es, la población en riesgo de contagio corresponde a 3,820,595 personas, lo que resultaría en una mortalidad a mediano plazo de 49,819.98 * 57.6/100 = <strong>28,696.31 individuos</strong>.</p>
+</div>
+<div id="modelo-de-crecimiento-dinámico-de-la-infección" class="section level2">
+<h2>Modelo de crecimiento dinámico de la infección</h2>
+<p>A corto plazo el número es más difícil de calcular, pues la población de infectados cambia de forma dinámica. Para hacerlo nos serviremos de modelos matemáticos usados en crecimientos poblacionales de micro y macro biología. <span class="citation">Tsoularis and Wallace (2002)</span> hace un resumen de estos modelos y propone algunas generalizaciones. Entre estos modelos, el modelo logístico de <span class="citation">Verhulst (1838)</span> es por mucho el más usado.</p>
+<p>El modelo de <span class="citation">Verhulst (1838)</span> considera que al tiempo <span class="math inline">\(t\)</span>, el crecimiento de población del virus depende de la población contagiada actual <span class="math inline">\(N\)</span>, la tasa de crecimiento unitaria <span class="math inline">\(r\)</span> y el tamaño de carga <span class="math inline">\(K\)</span> que corresponde a los individuos expuestos a ser contagiados por el virus. Así, la tasa de crecimiento al tiempo <span class="math inline">\(t\)</span> es</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dN}{t} = rN \left( 1- \frac{N}{K} \right),
+\end{equation}\]</span></p>
+<p>cuya solución en términos de población acumulada al tiempo <span class="math inline">\(t\)</span>, llamada <span class="math inline">\(N(t)\)</span> es</p>
+<p><span class="math display">\[\begin{equation}
+N(t) = \frac{KN_0}{(K - N_0)e^{-rt}+N_0},
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(N_0\)</span> es la población infectada inicial.</p>
+<p>Con este modelo podemos podemos estimar el comportamiento del virus en los próximos meses y el pico de la infección.</p>
+</div>
+<div id="estimación-del-crecimiento-en-nicaragua" class="section level2">
+<h2>Estimación del crecimiento en Nicaragua</h2>
+<p>Para poder usar el modelo anterior requerimos poder estimar:</p>
+<ul>
+<li><span class="math inline">\(N_0\)</span>: población infectada inicial.</li>
+<li><span class="math inline">\(r\)</span>: tasa de transferencia en etapas tempranas de la infección.</li>
+<li><span class="math inline">\(K\)</span>: tamaño de la población expuesta a la infección.</li>
+</ul>
+<div id="población-infectada-inicial" class="section level3">
+<h3>Población infectada inicial</h3>
+<p>Según diario de Nicaragua, <a href="https://www.el19digital.com/articulos/ver/titulo:101277-vigilancia-epidemiologica-permanente-permite-que-nicaragua-aun-no-registre-casos-de-coronavirus">El 19 Digital</a>, no existen casos de COVID-19 en el país al 15 de marzo de 2020. Los <a href="https://www.el19digital.com/el19tv/ver/titulo:14699-asi-es-el-protocolo-de-seguridad-sanitaria-ante-el-coronavirus-en-el-aeropuerto-augusto-c-sandino">protocolos de prevensión usados usados</a>, no son infalibles. Basta con observar lo <a href="https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/">casos de COVID-19 en los paises vecinos de centroamérica</a> para entender que a estas alturas es altamente probable que existan personas infectadas que no han sido identificadas.</p>
+<p>Hasta el momento según el <a href="https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/">SICA</a>, al 15 de marzo de 2020, en Centroamérica se han identificado los siguientes casos:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Países</th>
+<th align="right">Población</th>
+<th align="right">Casos Confirmados</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Belize</td>
+<td align="right">374,681</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Costa Rica</td>
+<td align="right">4,906,000</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">Guatemala</td>
+<td align="right">16,910,000</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Honduras</td>
+<td align="right">9,265,000</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Nicaragua</td>
+<td align="right">6,632,977</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">El Salvador</td>
+<td align="right">6,378,000</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Panamá</td>
+<td align="right">4,099,000</td>
+<td align="right">55</td>
+</tr>
+<tr class="even">
+<td align="left">República Dominicana</td>
+<td align="right">10,770,000</td>
+<td align="right">11</td>
+</tr>
+</tbody>
+</table>
+<p>Sin incluir a Nicaragua, esto implica un promedio de 0.207 casos confirmados por cada 100 mil habitantes. Si usamos esta tasa como referencia para reestimar el caso de Nicaragua, obtenemos <strong>14 como el número estimado de personas infectadas en Nicaragua al día 15 de Marzo</strong>. Usaremos <span class="math inline">\(N_0\)</span> igual a 14 en nuestro modelo.</p>
+</div>
+<div id="tasa-de-crecimiento" class="section level3">
+<h3>Tasa de crecimiento</h3>
+<p>Para calcular la tasa de crecimiento de la infección podemos usar como referencia la base de datos de la OMS disponible por la organización <a href="https://ourworldindata.org/"><em>Our Word in Data</em></a>. La base de datos de la OMS se puede descargar en formato CSV de <a href="https://covid.ourworldindata.org/data/full_data.csv">aquí</a>.</p>
+<p>Debido a que la base de datos es grande y difícil de manipular manualmente usando hojas de cálculo, hacemos uso de <code>R</code>, uno de los software de cienca de datos más populares al día de hoy, para extraer la base de datos y calcular el promedio de crecimiento de todos los países registrados en la OMS:</p>
+<pre class="r"><code>COVID19 &lt;- read.csv(url(&quot;https://covid.ourworldindata.org/data/full_data.csv&quot;))
+
+COVID19$location = factor(COVID19$location)
+
+n = 0
+srate_total = 0
+rate_total = 0
+na.count = 0
+paises.na = c() #inicializar
+conteo.pais.na = 0
+for (country in levels(COVID19$location)[1:152]){ #153 es resumen Mundo
+  if (sum(COVID19$location == country) &gt; 1){
+    n = n + 1
+    total_cases = COVID19$total_cases[COVID19$location == country]
+    srate = 0
+    rate = 0
+    for (i in 2:(sum(COVID19$location == country))) {
+      if(is.na(total_cases[i])){
+        conteo.pais.na = conteo.pais.na + 1
+        total_cases[i] =  total_cases[i-1]
+        na.count = na.count + 1
+        paises.na[conteo.pais.na] = country
+      }
+      srate = srate + total_cases[i]/total_cases[i-1]
+      rate = srate/(i-1)
+    }
+    srate_total = srate_total + rate
+    rate_total = srate_total / n
+  }
+}
+cat(&quot;Tasa de crecimiento diario promedio por país es &quot;, rate_total, &quot;\n&quot;,
+    &quot;Datos faltantes = &quot;, na.count,&quot;\n&quot;,
+    &quot;de paises:&quot;, paises.na)</code></pre>
+<pre><code>## Tasa de crecimiento diario promedio por país es  1.398664 
+##  Datos faltantes =  0 
+##  de paises:</code></pre>
+<p>Así, 1.399 es la tasa de crecimiento diaria del COVID-19. Esto implica que en un día hay un incremento de 0.399 de casos por unidad. Un valor increíblemente alto, y la razón por la cual vemos medidas tan extremas en muchas partes del mundo. En estos cálculos la tasa de crecimiento diaria de cada país tiene el mismo peso al momento de calcularse el promedio, independientemente de cuantos registros tenga cada país. Esto ayuda a reducir el sesgo de lo países que tenían más avance y sus tasas se habían reducido por las medidas de contención o por haber superado la crisis. Este último sería el caso de China.</p>
+<p>También vale la pena considerar que la tasa de transferencia se pudiera reducir en países con alta humedad y termpertura. Incluso hay un estudio prelimiar presentado por <span class="citation">Wang et al. (2020)</span> que da soporte ha esto. Sin embargo, la relación encontrada, aunque estadísticamente significativa, es baja. Estas consideraciones pueden mejorar la modelación, sin embargo, ante a incertidumbre, <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters">recomendaciones de la OMS sobre el tema de la temperatura y otros mitos</a> y el <a href="https://www.voanews.com/science-health/coronavirus-outbreak/australian-doctor-says-warm-weather-unlikely-stem-covid-19">escepticismo del gobierno australiano</a>, para este ejercicio, en nuestro modelo mantendremos el análisis conservador usando la estimación de <strong><span class="math inline">\(r\)</span> = 0.399</strong> que calculamos anteriormente.</p>
+</div>
+<div id="tamaño-de-la-población-expuesta-a-la-infección" class="section level3">
+<h3>Tamaño de la población expuesta a la infección</h3>
+<p>Partiendo de una población de 6,632,977 de Nicaragüenses, donde el 57.6% vive en zonas de concentración urbana, el grupo de interés se restingiría en 3,820,595 personas. Por simplicidad ignoraremos las zonas rurales al momento de hacer los cálculos, pues el desarrollo de la enfermedad en esas zonas es menor. Así, el valor <strong><span class="math inline">\(K\)</span></strong> para nuestro modelo lo definimos como <strong>3,820,595</strong>.</p>
+</div>
+<div id="estimación-del-pico-de-la-crisis" class="section level3">
+<h3>Estimación del pico de la crisis</h3>
+<p>Ajustando el modelo de <span class="citation">Verhulst (1838)</span> anteriormente expuesto obtenemos</p>
+<p><span class="math display">\[\begin{equation}
+N(t) = \frac{(3,820,595)(14)}{(3,820,595 - 14)e^{-0.347t}+14},
+\end{equation}\]</span></p>
+<p>lo que genera una curva sinoidal como se muestra</p>
+<p><img src="COVID-19_Nicaragua_files/figure-html/Crecimiento-1.png" width="672" /></p>
+<p>Ahora, si en lugar de observar el crecimiento de los contagios, revisamos sólo los casos nuevos obtenemos</p>
+<p><img src="COVID-19_Nicaragua_files/figure-html/IncDiario-1.png" width="672" /></p>
+<p>El modelo inicia al tiempo cero, con 14 casos el día 15 de Marzo. Aproximadamente para el 4 de Abril se espera un fuerte crecimiento en el número de casos que se mantendrá a lo largo de un mes, cuando la saturación en la población haga que la infección se ralentice. La mayoría de los casos de infección serán “inofensivos”, sin embargo, un 0.75% serán letales e impondrá un fuerte estrés al sistema de salud. Se espera que entre el 4 de Abril y el 4 de Mayo el sistema de salud del país colapse a menos que se tomen medida precautorias, que incluso pueden probar no ser suficientes.</p>
+<p>Los resultados calculados pueden resultar dramáticos para algunos. Sin embargo, este comportamiento es propio de los crecimientos exponenciales, y el escenario descrito corresponde muy de cerca con los <a href="https://www.infobae.com/america/mexico/2020/03/12/coronavirus-en-mexico-en-15-dias-podriamos-pasar-a-la-fase-de-contagios-comunitarios-con-cientos-de-casos-estima-la-secretaria-de-salud/">escenarios no deseados y estimados en México</a>.</p>
+</div>
+</div>
+<div id="qué-significa-esto-para-el-sistema-de-salud" class="section level2">
+<h2>¿Qué significa esto para el sistema de salud?</h2>
+<p>Aunque la mayor parte de los enfermos por COVID-19 pueden ser tratados desde su hogar, según <span class="citation">Wu and McGoogan (2020)</span>, de entre 44,415 pacientes chinos, el 5% de los casos fueron críticos y 14% severos. Asumiendo que sólo los casos críticos requieren de hospitalización, como se ha hecho en <a href="https://www.statnews.com/2020/03/16/coronavirus-model-shows-hospitals-what-to-expect/">otros casos</a>, hacemos un ajuste a nuestra curva de casos nuevos por día.</p>
+<p><img src="COVID-19_Nicaragua_files/figure-html/hospitalización-1.png" width="672" /></p>
+<p>Para efectos comparativos, en la gráfica anterior se agregó una línea punteada que representa las 5781 camas disponibles en hospitales en Nicaragua al 2017, según registro del <a href="https://www.inide.gob.ni/Anuarios/Anuario2017.pdf">INEDI</a>. Esta es sólo una referencia, pues hay que considerar que no todas las camas están disponibles y pueden tardar semanas en liberarse.</p>
+</div>
+<div id="se-puede-mejorar-esta-situación" class="section level2">
+<h2>¿Se puede mejorar esta situación?</h2>
+<p>Sí, sí se puede. Existen diversas estrategias para combatir la infección que han probado ser efectivas para reducir el crecimiento de la infección. Cabe notar que el avance del COVID-19 hace no factible evitar el contagio de la enfermedad aún en cuarentenas. Entre los países que han logrado mitigar el avance de las infecciones se encuentra el Korea del Sur, que ha dado un ejemplo para el mundo, y de manera local <a href="https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1572-gobierno-declara-estado-de-emergencia-nacional-impide-llegada-de-extranjeros-y-se-suspende-lecciones-en-todos-los-centros-educativos-del-pais">Costa Rica</a>.</p>
+<p>Con sus medidas Korea del Sur ha logrado mantener una <a href="https://ourworldindata.org/coronavirus">tasa de crecimiento que dobla los casos confirmados en 11 días</a>. Esto implica una tasa diaria de crecimiento de <span class="math inline">\(2^{1/11}\)</span> = 1.065. Es decir, que en un día los casos en Korea del Sur crecen en un <span class="math inline">\(r\)</span> de 6.5 %. Por otro lado, siguiendo la <a href="https://ourworldindata.org/coronavirus">misma fuente de información</a> del caso de Korea del Sur, Costa Rica mantiene una tasa de crecimiento inicial que dobla los casos confirmados en 6 días. Esto implica una tasa diaria de <span class="math inline">\(2^{1/6}\)</span> = 1.122, o un <span class="math inline">\(r\)</span> de 12.2%.</p>
+<p>Si Nicaragua tomara las medidas de Korea del Sur o de Costa Rica, los casos que requerirían hospitalización se reducirían de la siguiente manera:</p>
+<p><img src="COVID-19_Nicaragua_files/figure-html/Escenarios-1.png" width="672" /></p>
+<p>Claramente se observa que el efecto de tomar medidas como las de Korea del Sur deja al país en una situación grave, pero todavía manejable, con una esperanza de salir airosos de la crisis. El total de casos no se disminuye, pero poder controlar la tasa de crecimiento evita el colapso del sistema de salud.</p>
+</div>
+<div id="para-concluir-qué-podemos-hacer-por-nuestro-país" class="section level2">
+<h2>Para Concluir, ¿Qué Podemos Hacer por Nuestro País?</h2>
+<p>Las acciones son claras, el <a href="https://www.ecdc.europa.eu/en/publications-data/rapid-risk-assessment-novel-coronavirus-disease-2019-covid-19-pandemic-increased">Centro Europeo de Prevención y Control</a> tras hacer un análisis de riesgo de la situación resume las medidas de la siguiente manera:</p>
+<ul>
+<li>Distanciamiento social.</li>
+<li>Asegurar concientización social de la seriedad del COVID-19 y el rol de la higiene personal.</li>
+<li>Preparación de infraestructura y equipo en hospitales y locales destinados para atención médida a largo plazo.</li>
+<li>Entrenamiento a personal médico.</li>
+<li>Si las capacidades están limitadas, priorizar acciones que maximicen su efecto en las masas de población.</li>
+<li>Monitoreo y detección rápida de casos para reducir la diseminación de la enfermedad.</li>
+</ul>
+<p>Actuar con prontitud y contundencia parace ser el curso recomendado. Postergar las acciones o implementarlas inadecuadamente puede llevar a <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30522-5/fulltext">graves consecuencias</a>.</p>
+</div>
+<div id="referencias" class="section level2 unnumbered">
+<h2>Referencias</h2>
+<div id="refs" class="references">
+<div id="ref-tsoularis2002analysis">
+<p>Tsoularis, Anastasios, and James Wallace. 2002. “Analysis of Logistic Growth Models.” <em>Mathematical Biosciences</em> 179 (1): 21–55.</p>
+</div>
+<div id="ref-verhulst1838notice">
+<p>Verhulst, Pierre-François. 1838. “Notice Sur La Loi Que La Population Suit Dans Son Accroissement.” <em>Corresp. Math. Phys.</em> 10: 113–26.</p>
+</div>
+<div id="ref-wang2020high">
+<p>Wang, Jingyuan, Ke Tang, Kai Feng, and Weifeng Lv. 2020. “High Temperature and High Humidity Reduce the Transmission of Covid-19.” <em>Available at SSRN 3551767</em>.</p>
+</div>
+<div id="ref-wu2020characteristics">
+<p>Wu, Zunyou, and Jennifer M McGoogan. 2020. “Characteristics of and Important Lessons from the Coronavirus Disease 2019 (Covid-19) Outbreak in China: Summary of a Report of 72 314 Cases from the Chinese Center for Disease Control and Prevention.” <em>Jama</em>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

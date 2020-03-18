@@ -1,0 +1,224 @@
+---
+bibliography: biblioCOVID19.bib
+---
+
+# ¿Qué Nos Dicen las Matemáticas y la Ciencia de Datos Sobre el COVID-19 y la Salud de los Nicaragüenses?
+
+El COVID-19 es la infermedad infecciosa causada por el coronavirus de Wuhan. Existe mucha incertidumbre sobre el comportamiento que tendrá esta enfermedad en Nicaragua. Usaremos las estadísticas reportadas por otros países, datos poblacionales generales y modelos matemáticos del crecimiento biológico para sacar nuestras propias conclusiones. Que el ejercicio sirva para generar conciencia, discusión y mutuo aprendizaje.
+
+## Muertes a mediano y largo plazo
+
+Usando la [pirámide poblacional de Nicaragua](https://datosmacro.expansion.com/paises/nicaragua), y la [tasa de muertes por el COVID-19](https://www.worldometers.info/coronavirus/coronavirus-age-sex-demographics/), podemos calcular cuántas personas morirán en Nicaragua. Dado que no hay impuesta una política de distanciamiento social, podemos asumir que la infección será generalizada. De esta forma, la relación con las muertes esperadas, asumiendo que todos se contagian, es fácil de estimar:
+
+|    Edad               | Tasa de muertes | Hombres (2018)         | Mujeres (2018)         | Total (2018)           | Muertes esperadas                   |
+|-----------------------|-----------------|------------------------|------------------------|------------------------|-------------------------------------|
+|    80+ años      |    14.80%       |                27,895  |                43,601  |                71,496  |                     **10,581.41**   |
+|    70-79 años    |    8.00%        |                61,948  |                79,837  |              141,785   |                     **11,342.80**   |
+|    60-69 años    |    3.60%        |              139,328   |              173,657   |              312,985   |                     **11,267.46**   |
+|    50-59 años    |    1.30%        |              219,068   |              264,092   |              483,160   |                        **6,281.08** |
+|    40-49 años    |    0.40%        |              416,261   |              456,600   |              872,861   |                        **3,491.44** |
+|    30-39 años    |    0.20%        |              500,276   |              521,400   |          1,021,676     |                        **2,043.35** |
+|    20-29 años    |    0.20%        |              596,147   |              578,606   |          1,174,753     |                        **2,349.51** |
+|    10-19 años    |    0.20%        |              635,653   |              595,813   |          1,231,466     |                        **2,462.93** |
+| 0-9 años         |    0.00%        |              677,357   |              645,438   |          1,322,795     | **0.00**                            |
+| TOTAL                 | TOTAL           |          3,273,933     |          3,359,044     |          6,632,977     |                       **49,819.98** |
+
+
+Así, de un total de 6,632,977, se espera que a causa del COVID-19 mueran a largo plazo **49,819.98**, una tasa de mortalidad del **`r round(49819.98/6632977*100, digits = 2)`%**.
+
+A mediano plazo podemos considerar únicamente a los centros urbanos, la población más expuerta al virus. Según el [nuevo diario](https://www.elnuevodiario.com.ni/economia/463377-mas-mitad-nicas-residen-areas-urbanas/) al 2018 había un 57.6% de la población viviendo en concentraciones urbanas. Esto es, la población en riesgo de contagio corresponde a `r format(57.6/100 * 6632977, scientific = FALSE, big.mark=",")` personas, lo que resultaría en una mortalidad a mediano plazo de 49,819.98 * 57.6/100 = **`r format(49819.98 * 57.6/100, scientific = FALSE, big.mark=",")` individuos**.
+
+## Modelo de crecimiento dinámico de la infección
+
+A corto plazo el número es más difícil de calcular, pues la población de infectados cambia de forma dinámica. Para hacerlo nos serviremos de modelos matemáticos usados en crecimientos poblacionales de micro y macro biología. @tsoularis2002analysis hace un resumen de estos modelos y propone algunas generalizaciones. Entre estos modelos, el modelo logístico de @verhulst1838notice es por mucho el más usado.
+
+El modelo de @verhulst1838notice considera que al tiempo $t$, el crecimiento de población del virus depende de la población contagiada actual $N$, la tasa de crecimiento unitaria $r$ y el tamaño de carga $K$ que corresponde a los individuos expuestos a ser contagiados por el virus. Así, la tasa de crecimiento al tiempo $t$ es
+
+\begin{equation}
+\frac{dN}{t} = rN \left( 1- \frac{N}{K} \right),
+\end{equation}
+
+cuya solución en términos de población acumulada al tiempo $t$, llamada $N(t)$ es
+
+\begin{equation}
+N(t) = \frac{KN_0}{(K - N_0)e^{-rt}+N_0},
+\end{equation}
+
+donde $N_0$ es la población infectada inicial.
+
+Con este modelo podemos podemos estimar el comportamiento del virus en los próximos meses y el pico de la infección.
+
+## Estimación del crecimiento en Nicaragua
+
+Para poder usar el modelo anterior requerimos poder estimar:
+
+- $N_0$: población infectada inicial.
+- $r$: tasa de transferencia en etapas tempranas de la infección.
+- $K$: tamaño de la población expuesta a la infección.
+
+### Población infectada inicial
+
+Según diario de Nicaragua, [El 19 Digital](https://www.el19digital.com/articulos/ver/titulo:101277-vigilancia-epidemiologica-permanente-permite-que-nicaragua-aun-no-registre-casos-de-coronavirus), no existen casos de COVID-19 en el país al 15 de marzo de 2020. Los [protocolos de prevensión usados usados](https://www.el19digital.com/el19tv/ver/titulo:14699-asi-es-el-protocolo-de-seguridad-sanitaria-ante-el-coronavirus-en-el-aeropuerto-augusto-c-sandino), no son infalibles. Basta con observar lo [casos de COVID-19 en los paises vecinos de centroamérica](https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/) para entender que a estas alturas es altamente probable que existan personas infectadas que no han sido identificadas.
+
+Hasta el momento según el [SICA](https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/), al 15 de marzo de 2020, en Centroamérica se han identificado los siguientes casos:
+
+```{r casos, echo=FALSE}
+casos.confirmados = c(0, 35, 2, 6, 0, 0, 55, 11)
+poblacion = c(374681, 4906000, 16910000, 9265000, 6632977, 6378000, 4099000, 10770000)
+  paises = c("Belize", "Costa Rica", "Guatemala", "Honduras", "Nicaragua", "El Salvador", "Panamá", "República Dominicana")
+paises = as.factor(paises)
+caDB = data.frame(paises, poblacion, casos.confirmados)
+
+knitr::kable(caDB, "pandoc", col.names = c("Países", "Población", "Casos Confirmados"), format.args = list(big.mark = ",", scientific = FALSE))
+```
+
+Sin incluir a Nicaragua, esto implica un promedio de `r format( sum(casos.confirmados[paises != "Nicaragua"])/sum(poblacion[paises != "Nicaragua"]) * 100000, scientific = FALSE, digits = 3, big.mark=",")` casos confirmados por cada 100 mil habitantes. Si usamos esta tasa como referencia para reestimar el caso de Nicaragua, obtenemos `r N0 = sum(casos.confirmados[paises != "Nicaragua"])/sum(poblacion[paises != "Nicaragua"]) * poblacion[paises == "Nicaragua"] `**`r format(N0, digits = 1, scientific = FALSE, big.mark=",")` como el número estimado de personas infectadas en Nicaragua al día 15 de Marzo**. Usaremos $N_0$ igual a `r format(N0, digits = 1, scientific = FALSE, big.mark=",")` en nuestro modelo.
+
+### Tasa de crecimiento 
+
+Para calcular la tasa de crecimiento de la infección podemos usar como referencia la base de datos de la OMS disponible por la organización [*Our Word in Data*](https://ourworldindata.org/). La base de datos de la OMS se puede descargar en formato CSV de [aquí](https://covid.ourworldindata.org/data/full_data.csv).
+
+Debido a que la base de datos es grande y difícil de manipular manualmente usando hojas de cálculo, hacemos uso de `R`, uno de los software de cienca de datos más populares al día de hoy, para extraer la base de datos y calcular el promedio de crecimiento de todos los países registrados en la OMS:
+
+```{r}
+COVID19 <- read.csv(url("https://covid.ourworldindata.org/data/full_data.csv"))
+
+COVID19$location = factor(COVID19$location)
+
+n = 0
+srate_total = 0
+rate_total = 0
+na.count = 0
+paises.na = c() #inicializar
+conteo.pais.na = 0
+for (country in levels(COVID19$location)[1:152]){ #153 es resumen Mundo
+  if (sum(COVID19$location == country) > 1){
+    n = n + 1
+    total_cases = COVID19$total_cases[COVID19$location == country]
+    srate = 0
+    rate = 0
+    for (i in 2:(sum(COVID19$location == country))) {
+      if(is.na(total_cases[i])){
+        conteo.pais.na = conteo.pais.na + 1
+        total_cases[i] =  total_cases[i-1]
+        na.count = na.count + 1
+        paises.na[conteo.pais.na] = country
+      }
+      srate = srate + total_cases[i]/total_cases[i-1]
+      rate = srate/(i-1)
+    }
+    srate_total = srate_total + rate
+    rate_total = srate_total / n
+  }
+}
+cat("Tasa de crecimiento diario promedio por país es ", rate_total, "\n",
+    "Datos faltantes = ", na.count,"\n",
+    "de paises:", paises.na)
+```
+
+Así, `r format(rate_total, digits = 4, scientific = FALSE, big.mark=",")` es la tasa de crecimiento diaria del COVID-19. Esto implica que en un día hay un incremento de `r format(rate_total - 1, digits = 3, scientific = FALSE, big.mark=",")` de casos por unidad. Un valor increíblemente alto, y la razón por la cual vemos medidas tan extremas en muchas partes del mundo.  En estos cálculos la tasa de crecimiento diaria de cada país tiene el mismo peso al momento de calcularse el promedio, independientemente de cuantos registros tenga cada país. Esto ayuda a reducir el sesgo de lo países que tenían más avance y sus tasas se habían reducido por las medidas de contención o por haber superado la crisis. Este último sería el caso de China.
+
+También vale la pena considerar que la tasa de transferencia se pudiera reducir en países con alta humedad y termpertura. Incluso hay un estudio prelimiar presentado por @wang2020high que da soporte ha esto. Sin embargo, la relación encontrada, aunque estadísticamente significativa, es baja. Estas consideraciones pueden mejorar la modelación, sin embargo, ante a incertidumbre, [recomendaciones de la OMS sobre el tema de la temperatura y otros mitos](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters) y el [escepticismo del gobierno australiano](https://www.voanews.com/science-health/coronavirus-outbreak/australian-doctor-says-warm-weather-unlikely-stem-covid-19), para este ejercicio, en nuestro modelo mantendremos el análisis conservador usando la estimación de **$r$ = `r format(rate_total - 1, digits = 3, scientific = FALSE, big.mark=",")`** que calculamos anteriormente.
+
+### Tamaño de la población expuesta a la infección
+
+Partiendo de una población de 6,632,977 de Nicaragüenses, donde el 57.6% vive en zonas de concentración urbana, el grupo de interés se restingiría en 3,820,595 personas. Por simplicidad ignoraremos las zonas rurales al momento de hacer los cálculos, pues el desarrollo de la enfermedad en esas zonas es menor. Así, el valor **$K$** para nuestro modelo lo definimos como **3,820,595**.
+
+### Estimación del pico de la crisis
+
+Ajustando el modelo de @verhulst1838notice anteriormente expuesto obtenemos
+
+\begin{equation}
+N(t) = \frac{(3,820,595)(14)}{(3,820,595 - 14)e^{-0.347t}+14},
+\end{equation}
+
+lo que genera una curva sinoidal como se muestra
+
+```{r Crecimiento, echo=FALSE}
+
+K = 3820595
+N0 = 14
+r = rate_total-1
+horizonte = 300
+
+t = 1:horizonte
+Nt = (K*N0) / ((K-N0)*exp(-r * t)+N0)
+
+plot(x = t, y = Nt, type = "l", xlab = "Días a partir del 15 de Marzo de 2020", ylab = "Total de casos", main = "Crecimiento acumulado de casos de COVID-19 en Nicaragua", xlim = c(1,100))
+```
+
+Ahora, si en lugar de observar el crecimiento de los contagios, revisamos sólo los casos nuevos obtenemos
+
+```{r IncDiario, echo=FALSE}
+crecimiento.diario = Nt[2:horizonte]-Nt[1:(horizonte-1)]
+
+plot(x = t[2:horizonte], y = crecimiento.diario, type = "l", xlab = "Días a partir del 15 de Marzo de 2020", ylab = "Nuevos casos", main = "Nuevos Infectados por Día", xlim = c(1,100))
+```
+
+El modelo inicia al tiempo cero, con 14 casos el día 15 de Marzo. Aproximadamente para el 4 de Abril se espera un fuerte crecimiento en el número de casos que se mantendrá a lo largo de un mes, cuando la saturación en la población haga que la infección se ralentice. La mayoría de los casos de infección serán "inofensivos", sin embargo, un 0.75% serán letales e impondrá un fuerte estrés al sistema de salud. Se espera que entre el 4 de Abril y el 4 de Mayo el sistema de salud del país colapse a menos que se tomen medida precautorias, que incluso pueden probar no ser suficientes.
+
+Los resultados calculados pueden resultar dramáticos para algunos. Sin embargo, este comportamiento es propio de los crecimientos exponenciales, y el escenario descrito corresponde muy de cerca con los [escenarios no deseados y estimados en México](https://www.infobae.com/america/mexico/2020/03/12/coronavirus-en-mexico-en-15-dias-podriamos-pasar-a-la-fase-de-contagios-comunitarios-con-cientos-de-casos-estima-la-secretaria-de-salud/).
+
+## ¿Qué significa esto para el sistema de salud?
+
+Aunque la mayor parte de los enfermos por COVID-19 pueden ser tratados desde su hogar, según @wu2020characteristics, de entre 44,415 pacientes chinos, el 5% de los casos fueron críticos y 14% severos. Asumiendo que sólo los casos críticos requieren de hospitalización, como se ha hecho en [otros casos](https://www.statnews.com/2020/03/16/coronavirus-model-shows-hospitals-what-to-expect/), hacemos un ajuste a nuestra curva de casos nuevos por día.
+
+```{r hospitalización, echo=FALSE}
+requieren.hospital = 0.05
+crecimiento.diario = Nt[2:horizonte]-Nt[1:(horizonte-1)]
+crecimiento.diario = crecimiento.diario * requieren.hospital
+
+plot(x = t[2:horizonte], y = crecimiento.diario, type = "l", xlab = "Días a partir del 15 de Marzo de 2020", ylab = "Nuevos casos", main = "Requerimientos diarios de nuevas hospitalizaciones", xlim = c(1,100))
+abline(h = 5781, lty = 2)
+legend("topright", legend = c("Requerimientos", "Camas disponibles"), lty = c(1,2),)
+```
+
+Para efectos comparativos, en la gráfica anterior se agregó una línea punteada que representa las 5781 camas disponibles en hospitales en Nicaragua al 2017, según registro del [INEDI](https://www.inide.gob.ni/Anuarios/Anuario2017.pdf). Esta es sólo una referencia, pues hay que considerar que no todas las camas están disponibles y pueden tardar semanas en liberarse.
+
+## ¿Se puede mejorar esta situación?
+
+Sí, sí se puede. Existen diversas estrategias para combatir la infección que han probado ser efectivas para reducir el crecimiento de la infección. Cabe notar que el avance del COVID-19 hace no factible evitar el contagio de la enfermedad aún en cuarentenas. Entre los países que han logrado mitigar el avance de las infecciones se encuentra el Korea del Sur, que ha dado un ejemplo para el mundo, y de manera local [Costa Rica](https://www.ministeriodesalud.go.cr/index.php/centro-de-prensa/noticias/741-noticias-2020/1572-gobierno-declara-estado-de-emergencia-nacional-impide-llegada-de-extranjeros-y-se-suspende-lecciones-en-todos-los-centros-educativos-del-pais).
+
+Con sus medidas Korea del Sur ha logrado mantener una [tasa de crecimiento que dobla los casos confirmados en 11 días](https://ourworldindata.org/coronavirus). Esto implica una tasa diaria de crecimiento de $2^{1/11}$ = `r format(2^(1/11), digits=4)`. Es decir, que en un día los casos en Korea del Sur crecen en un $r$ de `r format((2^(1/11)-1)*100, digits = 3)` %. Por otro lado, siguiendo la [misma fuente de información](https://ourworldindata.org/coronavirus) del caso de Korea del Sur, Costa Rica mantiene una tasa de crecimiento inicial que dobla los casos confirmados en 6 días. Esto implica una tasa diaria de $2^{1/6}$ = `r format(2^(1/6), digits = 4)`, o un $r$ de `r format((2^(1/6)-1)*100, digits = 3)`%.
+
+Si Nicaragua tomara las medidas de Korea del Sur o de Costa Rica, los casos que requerirían hospitalización se reducirían de la siguiente manera:
+
+```{r Escenarios, echo=FALSE}
+K = 3820595
+N0 = 14
+rnew = 2^(1/11)-1
+rCR = 2^(1/6)-1
+requieren.hospital = 0.05
+
+t = 1:horizonte
+Ntnew = (K*N0) / ((K-N0)*exp(-rnew * t)+N0)
+crecimiento.diario.new = Ntnew[2:horizonte]-Ntnew[1:(horizonte-1)]
+crecimiento.diario.new = crecimiento.diario.new * requieren.hospital
+
+NtCR = (K*N0) / ((K-N0)*exp(-rCR * t)+N0)
+crecimiento.diario.CR = NtCR[2:horizonte]-NtCR[1:(horizonte-1)]
+crecimiento.diario.CR = crecimiento.diario.CR * requieren.hospital
+
+plot(x = t[2:horizonte], y = crecimiento.diario, type = "l", xlab = "Días a partir del 15 de Marzo de 2020", ylab = "Nuevos casos", main = "Comparación de Escenarios del COVID-19 en Nicaragua")
+lines(x = t[2:horizonte], y = crecimiento.diario.new, lty = 5)
+lines(x = t[2:horizonte], y = crecimiento.diario.CR, lty = 3)
+abline(h = 5781, lty = 2)
+legend("topright", legend = c("Sin distanciamiento social", "Con distanciamiento tipo Korea del Sur", "Con distanciamiento tipo Costa Rica", "Camas disponibles en el país"), lty = c(1,5,3,2))
+```
+
+Claramente se observa que el efecto de tomar medidas como las de Korea del Sur deja al país en una situación grave, pero todavía manejable, con una esperanza de salir airosos de la crisis. El total de casos no se disminuye, pero poder controlar la tasa de crecimiento evita el colapso del sistema de salud.
+
+## Para Concluir, ¿Qué Podemos Hacer por Nuestro País?
+
+Las acciones son claras, el [Centro Europeo de Prevención y Control](https://www.ecdc.europa.eu/en/publications-data/rapid-risk-assessment-novel-coronavirus-disease-2019-covid-19-pandemic-increased) tras hacer un análisis de riesgo de la situación resume las medidas de la siguiente manera:
+
+- Distanciamiento social.
+- Asegurar concientización social de la seriedad del COVID-19 y el rol de la higiene personal.
+- Preparación de infraestructura y equipo en hospitales y locales destinados para atención médida a largo plazo.
+- Entrenamiento a personal médico.
+- Si las capacidades están limitadas, priorizar acciones que maximicen su efecto en las masas de población.
+- Monitoreo y detección rápida de casos para reducir la diseminación de la enfermedad.
+
+Actuar con prontitud y contundencia parace ser el curso recomendado. Postergar las acciones o implementarlas inadecuadamente puede llevar a [graves consecuencias](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30522-5/fulltext).
+
+## Referencias
