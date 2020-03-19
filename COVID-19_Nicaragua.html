@@ -429,7 +429,7 @@ $(document).ready(function () {
 <p>A corto plazo el número es más difícil de calcular, pues la población de infectados cambia de forma dinámica. Para hacerlo nos serviremos de modelos matemáticos usados en crecimientos poblacionales de micro y macro biología. <span class="citation">Tsoularis and Wallace (2002)</span> hace un resumen de estos modelos y propone algunas generalizaciones. Entre estos modelos, el modelo logístico de <span class="citation">Verhulst (1838)</span> es por mucho el más usado.</p>
 <p>El modelo de <span class="citation">Verhulst (1838)</span> considera que al tiempo <span class="math inline">\(t\)</span>, el crecimiento de población del virus depende de la población contagiada actual <span class="math inline">\(N\)</span>, la tasa de crecimiento unitaria <span class="math inline">\(r\)</span> y el tamaño de carga <span class="math inline">\(K\)</span> que corresponde a los individuos expuestos a ser contagiados por el virus. Así, la tasa de crecimiento al tiempo <span class="math inline">\(t\)</span> es</p>
 <p><span class="math display">\[\begin{equation}
-\frac{dN}{t} = rN \left( 1- \frac{N}{K} \right),
+\frac{dN}{dt} = rN \left( 1- \frac{N}{K} \right),
 \end{equation}\]</span></p>
 <p>cuya solución en términos de población acumulada al tiempo <span class="math inline">\(t\)</span>, llamada <span class="math inline">\(N(t)\)</span> es</p>
 <p><span class="math display">\[\begin{equation}
