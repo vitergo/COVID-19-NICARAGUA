@@ -35,7 +35,7 @@ A corto plazo el número es más difícil de calcular, pues la población de inf
 El modelo de @verhulst1838notice considera que al tiempo $t$, el crecimiento de población del virus depende de la población contagiada actual $N$, la tasa de crecimiento unitaria $r$ y el tamaño de carga $K$ que corresponde a los individuos expuestos a ser contagiados por el virus. Así, la tasa de crecimiento al tiempo $t$ es
 
 \begin{equation}
-\frac{dN}{t} = rN \left( 1- \frac{N}{K} \right),
+\frac{dN}{dt} = rN \left( 1- \frac{N}{K} \right),
 \end{equation}
 
 cuya solución en términos de población acumulada al tiempo $t$, llamada $N(t)$ es
