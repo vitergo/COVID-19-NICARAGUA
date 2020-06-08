@@ -4,6 +4,17 @@ bibliography: biblioCOVID19.bib
 
 # ¿Qué Nos Dicen las Matemáticas y la Ciencia de Datos Sobre el COVID-19 y la Salud de los Nicaragüenses?
 
+Antes de leer, considera lo siguiente:
+
+- Fecha de análisis: *15 de marzo de 2020*
+- Las estimaciones iniciales se basan en la prevalencia de Centroamérica al momento del análisis.
+- Las estimaciones de las muertes consideran la información disponible a la fecha del estudio. Nuevos estudios sobre la mortalidad de la población infectada (IFR) pueden reducir la cifra estimada de muertes.
+- Los modelos asumen un comportamiento aleatorio de la población, sin embargo, los esfuerzos iniciales de mitigación y distribución de la población, entre otras variables, pueden crear rezagos.
+- El modelo logístico aquí utilizado es equivalente a un modelo compartimental SI.
+- Las estimaciones aquí presentadas están sujetas a cambios. La validez de los supuestos del modelo, el dinamismo de la población y los cambios en las condiciones del país afectan el pronóstico.
+- Una vez se obtengan datos del comportamiento del virus es conveniente actualizar las estimaciones y comparar los resultados con otros modelos como el SIR o SEIR. Estos modelos generan información adicional útil y en ocasiones pueden generar mejores pronósticos.
+- Como en todo sistema de pronósticos, la actualización constante es clave.
+
 El COVID-19 es la infermedad infecciosa causada por el coronavirus de Wuhan. Existe mucha incertidumbre sobre el comportamiento que tendrá esta enfermedad en Nicaragua. Usaremos las estadísticas reportadas por otros países, datos poblacionales generales y modelos matemáticos del crecimiento biológico para sacar nuestras propias conclusiones. Que el ejercicio sirva para generar conciencia, discusión y mutuo aprendizaje.
 
 ## Muertes a mediano y largo plazo
@@ -35,7 +46,7 @@ A corto plazo el número es más difícil de calcular, pues la población de inf
 El modelo de @verhulst1838notice considera que al tiempo $t$, el crecimiento de población del virus depende de la población contagiada actual $N$, la tasa de crecimiento unitaria $r$ y el tamaño de carga $K$ que corresponde a los individuos expuestos a ser contagiados por el virus. Así, la tasa de crecimiento al tiempo $t$ es
 
 \begin{equation}
-\frac{dN}{dt} = rN \left( 1- \frac{N}{K} \right),
+\frac{dN}{t} = rN \left( 1- \frac{N}{K} \right),
 \end{equation}
 
 cuya solución en términos de población acumulada al tiempo $t$, llamada $N(t)$ es
@@ -58,7 +69,7 @@ Para poder usar el modelo anterior requerimos poder estimar:
 
 ### Población infectada inicial
 
-Según diario de Nicaragua, [El 19 Digital](https://www.el19digital.com/articulos/ver/titulo:101277-vigilancia-epidemiologica-permanente-permite-que-nicaragua-aun-no-registre-casos-de-coronavirus), no existen casos de COVID-19 en el país al 15 de marzo de 2020. Los [protocolos de prevención usados](https://www.el19digital.com/el19tv/ver/titulo:14699-asi-es-el-protocolo-de-seguridad-sanitaria-ante-el-coronavirus-en-el-aeropuerto-augusto-c-sandino), no son infalibles. Basta con observar lo [casos de COVID-19 en los paises vecinos de centroamérica](https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/) para entender que a estas alturas es altamente probable que existan personas infectadas que no han sido identificadas.
+Según diario de Nicaragua, [El 19 Digital](https://www.el19digital.com/articulos/ver/titulo:101277-vigilancia-epidemiologica-permanente-permite-que-nicaragua-aun-no-registre-casos-de-coronavirus), no existen casos de COVID-19 en el país al 15 de marzo de 2020. Los [protocolos de prevención usados usados](https://www.el19digital.com/el19tv/ver/titulo:14699-asi-es-el-protocolo-de-seguridad-sanitaria-ante-el-coronavirus-en-el-aeropuerto-augusto-c-sandino), no son infalibles. Basta con observar lo [casos de COVID-19 en los paises vecinos de centroamérica](https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/) para entender que a estas alturas es altamente probable que existan personas infectadas que no han sido identificadas.
 
 Hasta el momento según el [SICA](https://nuevaya.com.ni/centroamerica-reporta-dos-fallecidos-por-el-coronavirus/), al 15 de marzo de 2020, en Centroamérica se habían identificado los siguientes casos:
 
@@ -175,7 +186,7 @@ abline(h = 5781, lty = 2)
 legend("topright", legend = c("Requerimientos", "Camas disponibles"), lty = c(1,2),)
 ```
 
-Para efectos comparativos, en la gráfica anterior se agregó una línea punteada que representa las 5781 camas disponibles en hospitales en Nicaragua al 2017, según registro del [INIDE](https://www.inide.gob.ni/Anuarios/Anuario2017.pdf). Esta es sólo una referencia, pues hay que considerar que no todas las camas están disponibles y pueden tardar semanas en liberarse.
+Para efectos comparativos, en la gráfica anterior se agregó una línea punteada que representa las 5781 camas disponibles en hospitales en Nicaragua al 2017, según registro del [INEDI](https://www.inide.gob.ni/Anuarios/Anuario2017.pdf). Esta es sólo una referencia, pues hay que considerar que no todas las camas están disponibles y pueden tardar semanas en liberarse.
 
 ## ¿Se puede mejorar esta situación?
 
